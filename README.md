@@ -7,7 +7,12 @@
 The file contains data collected from mobile phones from 5 different potential users. For each user, the data contains 5 different factors: Daily Usage, Sleep Duration, Steps, Exercise Duration, Week of the Day. These factors are collected to identify correlations with the users' Sleep Quality (SQ).
 
 ## PoDoc_prediction.ipynb
-This model uses the LinearRegression machine learning model, and when there is new input of data, it predicts the estimated Satisfactory level and gives recommendations based on the input data after training and testing the existing data with KFold and feature scaling strategies
+This model uses the LinearRegression machine learning model to analyze users’ data, and predict their satisfactory level of sleep quality (SQ) based on the accumulated data of the user. In order to increase the train and test sets, we used KFold to get numerous outputs of predicted sleeping quality as well as the prediction error and calculated their average to increase the accuracy of the model. Also, we have applied feature scaling since the number of data varies according to the types of factors from number of steps to seconds of duration of sleep.
+
+When new inputs of current factor data is made, such as exercise duration, sleep duration, phone usage duration, number of steps and the day of the week at the moment, it predicts the SQ with prediction of the factor data input. For example, if a user has 5 hours of sleep left since he/she has been playing video games and our model predicts his/her SQ to be lower than 3 which is the minimum satisfactory level, the model will remind the user his/her predicted SQ at the moment based on the accumulated data and recommend him/her to sleep. Also, it will suggest challenges to help the user to avoid the problem next time. 
+
+Also, based on the average prediction error, our system is able to tell which of the factors have the best effects to the users SQ, thereby giving personalized solutions. 
+
 
 ## PoDoc_singleFactor.ipynb
 This program computes the correlation factor between a single category of health data to the sleep quality of users. This factor varies from 0 to 1, where a figure closer to 1 means a higher contribution to good sleep quality. Using the ‘seaborn’ python library, we visualized the degree of correlation. 
